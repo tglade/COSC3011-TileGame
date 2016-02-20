@@ -1,5 +1,5 @@
 /**
- * @author Kim Buckner
+ * @author Group F
  * Date: Feb 19, 2016
  *
  * This is the actual "game". May/will have to make some major changes.
@@ -82,7 +82,7 @@ public class GameWindow extends JFrame implements ActionListener
       basic.gridwidth=1;
       basic.gridheight=1;
       basic.fill=GridBagConstraints.BOTH;
-
+      // hello
       //Here I create 16 elements to put into my gameBoard
 
       // Now I add each one, modifying the default gridx/y and add

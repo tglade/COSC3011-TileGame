@@ -19,7 +19,7 @@ public class Main
   public static void main(String[] args)
   {
     // This is the play area
-    GameWindow game = new GameWindow("Group X aMaze");
+    GameWindow game = new GameWindow("Group F Maze");
     
     // have to override the default layout to reposition things!!!!!!!
 

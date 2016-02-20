@@ -20,7 +20,7 @@ public class Main
   {
     // This is the play area
     GameWindow game = new GameWindow("Group F Maze");
-    
+    Square test = new Square();
     // have to override the default layout to reposition things!!!!!!!
 
     game.setSize(new Dimension(900, 1000));
@@ -32,9 +32,12 @@ public class Main
     game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     game.getContentPane().setBackground(Color.cyan);
     game.setUp();
-    
+    test.setPlace(0,0);
     game.setVisible(true);
-
+    game.add(test);
+    test.setVisible(true);
+   
+    
     try {
       // The 4 that installed on Linux here
       // May have to test on Windows boxes to see what is there.

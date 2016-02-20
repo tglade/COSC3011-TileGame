@@ -1,23 +1,20 @@
 import java.awt.*;
+import java.awt.event.ActionListener;
 
-/**
- * A square that can be manipulated and that draws itself on a canvas.
- * 
- * @author  Michael Kölling and David J. Barnes
- * @version 2011.07.31
- */
+import javax.swing.JFrame;
 
-public class Square
+
+
+public class Square extends JFrame 
 {
+	public static final long serialVersionUID=1;
     private int size;
     private int xPosition;
     private int yPosition;
     private String color;
     private boolean isVisible;
-
-    /**
-     * Create a new square at default position with default color.
-     */
+    
+   
     public Square()
     {
         size = 60;
@@ -33,7 +30,11 @@ public class Square
     public void makeVisible()
     {
         isVisible = true;
-        draw();
+    }
+    public void setPlace(int x, int y)
+    {
+    	xPosition = x;
+    	yPosition = y;
     }
     
     /**
@@ -41,7 +42,7 @@ public class Square
      */
     public void makeInvisible()
     {
-        erase();
+        
         isVisible = false;
     }
     
@@ -82,9 +83,9 @@ public class Square
      */
     public void moveHorizontal(int distance)
     {
-        erase();
+        
         xPosition += distance;
-        draw();
+        
     }
 
     /**
@@ -92,9 +93,9 @@ public class Square
      */
     public void moveVertical(int distance)
     {
-        erase();
+       
         yPosition += distance;
-        draw();
+        
     }
 
     /**
@@ -117,7 +118,7 @@ public class Square
         for(int i = 0; i < distance; i++)
         {
             xPosition += delta;
-            draw();
+            
         }
     }
 
@@ -141,7 +142,7 @@ public class Square
         for(int i = 0; i < distance; i++)
         {
             yPosition += delta;
-            draw();
+            
         }
     }
 
@@ -157,13 +158,14 @@ public class Square
 
     /**
      * Change the color. Valid colors are "red", "yellow", "blue", "green",
-     * "magenta" and "black".
+     *  and "black".
      */
     public void changeColor(String newColor)
     {
         color = newColor;
         
     }
+}
 
     /**
      * Draw the square with current specifications on screen.

@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 
 public class GameWindow implements ActionListener {
     
-    public static final int BEVEL = 10;
+    public static final int BEVEL = 2;
     public static final Dimension PANEL_SIZE =
             new Dimension(700, 700);
     public static final String TILE_IMAGE = "TileImages/";
@@ -101,19 +101,21 @@ public class GameWindow implements ActionListener {
         
         // Paint the 16 free spots in the center as red
         for (int i = 0; i < 16; i++) {            
-            Rectangle bounds = new Rectangle(215 +(i/4)*(Tile.TILE_W+BEVEL),
-                                             275 + BEVEL+(i%4)*(Tile.TILE_W+BEVEL),
+            Rectangle bounds = new Rectangle(227 +(i/4)*(Tile.TILE_W+BEVEL),
+                                             297 + BEVEL+(i%4)*(Tile.TILE_W+BEVEL),
                                              Tile.TILE_W, Tile.TILE_W);
             freeSpots.add(bounds);
             JLabel emptyTile = new JLabel(new ImageIcon(TILE_IMAGE+"red.gif"));
             emptyTile.setBounds(bounds);
             panel.add(emptyTile);
         }
+        
+        // Paint the 16 tiles that will be moved
         for (int j = 0; j < 16; j++)
         {
         	if(j < 4)
         	{
-        		Rectangle tileBounds = new Rectangle(215 +(j)*(Tile.TILE_W+BEVEL), 
+        		Rectangle tileBounds = new Rectangle(227 +(j)*(Tile.TILE_W+BEVEL), 
         											 165, 
         											 Tile.TILE_W, 
         											 Tile.TILE_W);
@@ -122,7 +124,7 @@ public class GameWindow implements ActionListener {
         	}
         	else if(j < 8)
         	{
-        		Rectangle tileBounds  = new Rectangle(550, 275 + BEVEL+(j-4)*(Tile.TILE_W+BEVEL), 
+        		Rectangle tileBounds  = new Rectangle(550, 297 + BEVEL+(j-4)*(Tile.TILE_W+BEVEL), 
 													 Tile.TILE_W, 
 													 Tile.TILE_W);
 
@@ -130,7 +132,7 @@ public class GameWindow implements ActionListener {
         	}
         	else if(j < 12)
         	{
-        		Rectangle tileBounds = new Rectangle(215 +(j-8)*(Tile.TILE_W+BEVEL), 
+        		Rectangle tileBounds = new Rectangle(227 +(j-8)*(Tile.TILE_W+BEVEL), 
 						 615, 
 						 Tile.TILE_W, 
 						 Tile.TILE_W);
@@ -139,7 +141,7 @@ public class GameWindow implements ActionListener {
         	}
         	else
         	{
-        		Rectangle tileBounds  = new Rectangle(90, 275 + BEVEL+(j-12)*(Tile.TILE_W+BEVEL), 
+        		Rectangle tileBounds  = new Rectangle(90, 297 + BEVEL+(j-12)*(Tile.TILE_W+BEVEL), 
 						 Tile.TILE_W, 
 						 Tile.TILE_W);
 

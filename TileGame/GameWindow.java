@@ -17,7 +17,7 @@ public class GameWindow implements ActionListener {
     public static final int BEVEL = 2;
     public static final Dimension PANEL_SIZE =
             new Dimension(700, 700);
-    public static final String TILE_IMAGE = "TileImages/";
+    public static final String TILE_IMAGE = "/TileImages/";
     public final List<Rectangle> freeSpots = new ArrayList<Rectangle>(16);
     private JPanel panel;
     private JFrame window;
@@ -83,7 +83,8 @@ public class GameWindow implements ActionListener {
 		quitButton.setHorizontalTextPosition(AbstractButton.CENTER);
 		quitButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					 window.dispose();				}          
+					 window.dispose();
+				}          
 			}
 		);
 		quitButton.setBounds(quitBounds);
@@ -105,7 +106,7 @@ public class GameWindow implements ActionListener {
                                              297 + BEVEL+(i%4)*(Tile.TILE_W+BEVEL),
                                              Tile.TILE_W, Tile.TILE_W);
             freeSpots.add(bounds);
-            JLabel emptyTile = new JLabel(new ImageIcon(TILE_IMAGE+"red.gif"));
+            JLabel emptyTile = new JLabel(new ImageIcon(JPanel.class.getResource(GameWindow.TILE_IMAGE+"red.gif")));
             emptyTile.setBounds(bounds);
             panel.add(emptyTile);
         }

@@ -10,10 +10,11 @@ public class Tile extends JLabel {
     public static final int TILE_W = 60;    //square tile image width
     public int position;            		//the numeric rank of the tile position
     private GameWindow gameWin;          	//GameWindow object in which this tile is part of
+    public static final String TILE_IMAGE = "/TileImages/";
     
     public Tile(int pos, GameWindow gameW){
     	//BufferedImage bufImg = ImageIO.read(new File(TILE_IMAGE + "hexagonPattern.jpg");
-        super(new ImageIcon(GameWindow.TILE_IMAGE+"gold.gif"));
+        super(new ImageIcon(JPanel.class.getResource(GameWindow.TILE_IMAGE+"gold.gif")));
         MouseHandler listener = new MouseHandler();
         this.addMouseListener(listener);        //add mouseListeners to the tile
         this.addMouseMotionListener(listener);

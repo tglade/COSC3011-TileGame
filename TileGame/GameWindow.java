@@ -116,16 +116,15 @@ public class GameWindow implements ActionListener {
         {
         	if(j < 4)
         	{
-        		Rectangle tileBounds = new Rectangle(227 +(j)*(Tile.TILE_W+BEVEL), 
-        											 165, 
-        											 Tile.TILE_W, 
-        											 Tile.TILE_W);
+        		Rectangle tileBounds = new Rectangle(550, 420 + BEVEL+(j-4)*(Tile.TILE_W+BEVEL), 
+						 Tile.TILE_W, 
+						 Tile.TILE_W);
 
             	tileList.get(j).setBounds(tileBounds);
         	}
         	else if(j < 8)
         	{
-        		Rectangle tileBounds  = new Rectangle(550, 297 + BEVEL+(j-4)*(Tile.TILE_W+BEVEL), 
+        		Rectangle tileBounds  = new Rectangle(550, 420 + BEVEL+(j-4)*(Tile.TILE_W+BEVEL), 
 													 Tile.TILE_W, 
 													 Tile.TILE_W);
 
@@ -133,8 +132,7 @@ public class GameWindow implements ActionListener {
         	}
         	else if(j < 12)
         	{
-        		Rectangle tileBounds = new Rectangle(227 +(j-8)*(Tile.TILE_W+BEVEL), 
-						 615, 
+        		Rectangle tileBounds  = new Rectangle(90, 420 + BEVEL+(j-12)*(Tile.TILE_W+BEVEL), 
 						 Tile.TILE_W, 
 						 Tile.TILE_W);
 
@@ -142,7 +140,7 @@ public class GameWindow implements ActionListener {
         	}
         	else
         	{
-        		Rectangle tileBounds  = new Rectangle(90, 297 + BEVEL+(j-12)*(Tile.TILE_W+BEVEL), 
+        		Rectangle tileBounds  = new Rectangle(90, 420 + BEVEL+(j-12)*(Tile.TILE_W+BEVEL), 
 						 Tile.TILE_W, 
 						 Tile.TILE_W);
 

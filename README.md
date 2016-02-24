@@ -4,11 +4,11 @@ _We will probably come up with a snappy project title and description... eventua
 #### Collaborators
 <table>
   <tr>
-    <th>@tbrutsm1</th>
-    <th>@tglade</th>
-    <th>@violaceousfox</th>
-    <th>@dradosevich</th>
-    <th>@larfylarf</th>
+    <th>[@tbrutsm1](https://github.com/tbrutsm1)</th>
+    <th>[@tglade](https://github.com/tglade)</th>
+    <th>[@violaceousfox](https://github.com/violaceousfox)</th>
+    <th>[@dradosevich](https://github.com/dradosevich)</th>
+    <th>[@larfylarf](https://github.com/larfylarf)</th>
   </tr>
   <tr>
     <td><p align="center"><a href="https://github.com/tbrutsm1"><img src="https://avatars.githubusercontent.com/tbrutsm1" alt="alt text" width="60" height="60"></a></p></td>

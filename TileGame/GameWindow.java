@@ -1,3 +1,23 @@
+// Tyler Brutsman
+// Thomas Glade
+// Alanna Larson
+// Danny Radosevich
+// Chris Ruiz
+// Group F
+/**
+ * @author Kim Buckner
+ * Date: Feb 19, 2016
+ *
+ * This is the actual "game". May/will have to make some major changes.
+ * This is just a "hollow" shell.
+ *
+ * When you get done, I should see the buttons at the top in the "play" area
+ * (not a pull-down menu). The only one that should do anything is Quit.
+ *
+ * Should also see something that shows where the 4x4 board and the "spare"
+ * tiles will be when we get them stuffed in.
+ */
+
 package TileGame;
 
 import java.util.*;
@@ -15,8 +35,7 @@ import java.awt.event.ActionListener;
 public class GameWindow implements ActionListener {
     
     public static final int BEVEL = 2;
-    public static final Dimension PANEL_SIZE =
-            new Dimension(700, 700);
+    public static final Dimension PANEL_SIZE = new Dimension(900,1000);
     public static final String TILE_IMAGE = "/TileImages/";
     public final List<Rectangle> freeSpots = new ArrayList<Rectangle>(16);
     private JPanel panel;
@@ -26,9 +45,10 @@ public class GameWindow implements ActionListener {
     /**
      * Create the GUI objects and display the game
      */
-    public  GameWindow() {
+    public  GameWindow() 
+    {
         // Create the window and panel
-        window = new JFrame("Group F aMaze");
+        window = new JFrame("Group F Maze");
         panel = new JPanel(null);
         // Call to create a new game
         newGame();
@@ -44,19 +64,25 @@ public class GameWindow implements ActionListener {
     /**
      * Clear the JPanel and freeSpots list and set up a new game
      */
-    private void newGame() {
+    private void newGame() 
+    {
+    	
         //clear the board, clear the free spots
         //create a new deck of cards and shuffle it
         panel.removeAll();
         freeSpots.clear();
-      
+        int buttonCent = PANEL_SIZE.width/2 -160;
+        int gridCent = PANEL_SIZE.width/2 -2*Tile.TILE_W - BEVEL;
+        int tileStart = PANEL_SIZE.width/2 ;
         
-        Rectangle newGameBounds = new Rectangle(50, 50, 100, 50);
+        Rectangle newGameBounds = new Rectangle(buttonCent , 50, 100, 50);
         newGameButton = new JButton("New Game");
         newGameButton.setVerticalTextPosition(AbstractButton.CENTER);
 		newGameButton.setHorizontalTextPosition(AbstractButton.CENTER);
-		newGameButton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+		newGameButton.addActionListener(new ActionListener()
+		{
+				public void actionPerformed(ActionEvent e) 
+				{
 					 newGame();
 				}          
 			}
@@ -64,7 +90,7 @@ public class GameWindow implements ActionListener {
 		newGameButton.setBounds(newGameBounds);
 		panel.add(newGameButton);
         
-		Rectangle resetBounds = new Rectangle(160, 50, 100, 50);
+		Rectangle resetBounds = new Rectangle(buttonCent+110, 50, 100, 50);
         resetButton = new JButton("Reset");
         resetButton.setVerticalTextPosition(AbstractButton.CENTER);
 		resetButton.setHorizontalTextPosition(AbstractButton.CENTER);
@@ -77,7 +103,7 @@ public class GameWindow implements ActionListener {
 		resetButton.setBounds(resetBounds);
 		panel.add(resetButton);
 		
-		Rectangle quitBounds = new Rectangle(270, 50, 100, 50);
+		Rectangle quitBounds = new Rectangle(buttonCent+220, 50, 100, 50);
         quitButton = new JButton("Quit");
         quitButton.setVerticalTextPosition(AbstractButton.CENTER);
 		quitButton.setHorizontalTextPosition(AbstractButton.CENTER);
@@ -102,9 +128,7 @@ public class GameWindow implements ActionListener {
         
         // Paint the 16 free spots in the center as red
         for (int i = 0; i < 16; i++) {            
-            Rectangle bounds = new Rectangle(227 +(i/4)*(Tile.TILE_W+BEVEL),
-                                             297 + BEVEL+(i%4)*(Tile.TILE_W+BEVEL),
-                                             Tile.TILE_W, Tile.TILE_W);
+            Rectangle bounds = new Rectangle(gridCent +(i/4)*(Tile.TILE_W+BEVEL), 297 + BEVEL+(i%4)*(Tile.TILE_W+BEVEL), Tile.TILE_W, Tile.TILE_W);
             freeSpots.add(bounds);
             JLabel emptyTile = new JLabel(new ImageIcon(JPanel.class.getResource(GameWindow.TILE_IMAGE+"red.gif")));
             emptyTile.setBounds(bounds);
@@ -116,7 +140,7 @@ public class GameWindow implements ActionListener {
         {
         	if(j < 4)
         	{
-        		Rectangle tileBounds = new Rectangle(550, 420 + BEVEL+(j-4)*(Tile.TILE_W+BEVEL), 
+        		Rectangle tileBounds = new Rectangle(tileStart + 4*Tile.TILE_W, 420 + BEVEL+(j-4)*(Tile.TILE_W+BEVEL), 
 						 Tile.TILE_W, 
 						 Tile.TILE_W);
 
@@ -124,7 +148,7 @@ public class GameWindow implements ActionListener {
         	}
         	else if(j < 8)
         	{
-        		Rectangle tileBounds  = new Rectangle(550, 420 + BEVEL+(j-4)*(Tile.TILE_W+BEVEL), 
+        		Rectangle tileBounds  = new Rectangle(tileStart + 4*Tile.TILE_W, 420 + BEVEL+(j-4)*(Tile.TILE_W+BEVEL), 
 													 Tile.TILE_W, 
 													 Tile.TILE_W);
 
@@ -132,7 +156,7 @@ public class GameWindow implements ActionListener {
         	}
         	else if(j < 12)
         	{
-        		Rectangle tileBounds  = new Rectangle(90, 420 + BEVEL+(j-12)*(Tile.TILE_W+BEVEL), 
+        		Rectangle tileBounds  = new Rectangle(tileStart- 5*Tile.TILE_W, 420 + BEVEL+(j-12)*(Tile.TILE_W+BEVEL), 
 						 Tile.TILE_W, 
 						 Tile.TILE_W);
 
@@ -140,7 +164,7 @@ public class GameWindow implements ActionListener {
         	}
         	else
         	{
-        		Rectangle tileBounds  = new Rectangle(90, 420 + BEVEL+(j-12)*(Tile.TILE_W+BEVEL), 
+        		Rectangle tileBounds  = new Rectangle(tileStart- 5*Tile.TILE_W, 420 + BEVEL+(j-12)*(Tile.TILE_W+BEVEL), 
 						 Tile.TILE_W, 
 						 Tile.TILE_W);
 
@@ -157,8 +181,10 @@ public class GameWindow implements ActionListener {
     /**
      * resets the game board when reset button is clicked
      */
-    private void reset() { 
+    private void reset()
+    { 
     	// not finished
+    	
     }
     
     /**

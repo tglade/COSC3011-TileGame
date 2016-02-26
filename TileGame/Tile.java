@@ -1,3 +1,10 @@
+// Tyler Brutsman
+// Thomas Glade
+// Alanna Larson
+// Danny Radosevich
+// Chris Ruiz
+// Group F
+
 package TileGame;
 
 import javax.swing.*;
@@ -26,6 +33,7 @@ public class Tile extends JLabel {
         private int clickDisX;      //displacement when clicking on the Tile
         private int clickDisY;
         private Point origin;       //the point where the Tile is located
+        
         public void mouseDragged(MouseEvent e) {
             Tile Tile = (Tile) e.getComponent();
             JPanel panel = (JPanel) Tile.getParent();

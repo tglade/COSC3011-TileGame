@@ -127,11 +127,13 @@ public class GameWindow implements ActionListener {
         
         
         // Paint the 16 free spots in the center as red
-        for (int i = 0; i < 16; i++) {            
+        for (int i = 0; i < 16; i++) {    
             Rectangle bounds = new Rectangle(gridCent +(i/4)*(Tile.TILE_W+BEVEL), 297 + BEVEL+(i%4)*(Tile.TILE_W+BEVEL), Tile.TILE_W, Tile.TILE_W);
             freeSpots.add(bounds);
-            JLabel emptyTile = new JLabel(new ImageIcon(JPanel.class.getResource(GameWindow.TILE_IMAGE+"red.gif")));
+            JLabel emptyTile = new JLabel(Integer.toString(i), new ImageIcon(JPanel.class.getResource(GameWindow.TILE_IMAGE+"red.gif")), JLabel.CENTER);
+            emptyTile.setIconTextGap(-Tile.TILE_W);
             emptyTile.setBounds(bounds);
+           
             panel.add(emptyTile);
         }
         
@@ -170,6 +172,8 @@ public class GameWindow implements ActionListener {
 
         		tileList.get(j).setBounds(tileBounds);
         	}
+        	tileList.get(j).setIconTextGap(-Tile.TILE_W);
+        	tileList.get(j).setText(Integer.toString(j));
     		panel.add(tileList.get(j));
         	
         }

@@ -20,8 +20,8 @@ public class Tile extends JLabel {
     public static final String TILE_IMAGE = "/TileImages/";
     
     public Tile(int pos, GameWindow gameW){
-    	//BufferedImage bufImg = ImageIO.read(new File(TILE_IMAGE + "hexagonPattern.jpg");
-        super(new ImageIcon(JPanel.class.getResource(GameWindow.TILE_IMAGE+"gold.gif")));
+        //text doesn't show up on the tiles unless we initialize it here
+        super("test", new ImageIcon(JPanel.class.getResource(GameWindow.TILE_IMAGE+"gold.gif")), JLabel.CENTER);
         MouseHandler listener = new MouseHandler();
         this.addMouseListener(listener);        //add mouseListeners to the tile
         this.addMouseMotionListener(listener);

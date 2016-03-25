@@ -4,19 +4,7 @@
 // Danny Radosevich
 // Chris Ruiz
 // Group F
-/**
- * @author Kim Buckner
- * Date: Feb 19, 2016
- *
- * This is the actual "game". May/will have to make some major changes.
- * This is just a "hollow" shell.
- *
- * When you get done, I should see the buttons at the top in the "play" area
- * (not a pull-down menu). The only one that should do anything is Quit.
- *
- * Should also see something that shows where the 4x4 board and the "spare"
- * tiles will be when we get them stuffed in.
- */
+
 
 package TileGame;
 
@@ -127,8 +115,9 @@ public class GameWindow implements ActionListener {
         
         
         // Paint the 16 free spots in the center as red
-        for (int i = 0; i < 16; i++) {    
-            Rectangle bounds = new Rectangle(gridCent +(i/4)*(Tile.TILE_W+BEVEL), 297 + BEVEL+(i%4)*(Tile.TILE_W+BEVEL), Tile.TILE_W, Tile.TILE_W);
+        for (int i = 0; i < 16; i++) 
+        {    
+            Rectangle bounds = new Rectangle(gridCent +(i%4)*(Tile.TILE_W+BEVEL), 297 + BEVEL+(i/4)*(Tile.TILE_W+BEVEL), Tile.TILE_W, Tile.TILE_W); // Order they display changed by Danny
             freeSpots.add(bounds);
             JLabel emptyTile = new JLabel(Integer.toString(i), new ImageIcon(JPanel.class.getResource(GameWindow.TILE_IMAGE+"red.gif")), JLabel.CENTER);
             emptyTile.setIconTextGap(-Tile.TILE_W);
@@ -138,11 +127,11 @@ public class GameWindow implements ActionListener {
         }
         
         // Paint the 16 tiles that will be moved
-        for (int j = 0; j < 16; j++)
+        for (int j = 0; j < 16; j++) // display order changed by Danny
         {
         	if(j < 4)
         	{
-        		Rectangle tileBounds = new Rectangle(tileStart + 4*Tile.TILE_W, 420 + BEVEL+(j-4)*(Tile.TILE_W+BEVEL), 
+        		Rectangle tileBounds = new Rectangle(tileStart - 5*Tile.TILE_W, 420 + BEVEL+(j-4)*(Tile.TILE_W+BEVEL), 
 						 Tile.TILE_W, 
 						 Tile.TILE_W);
 
@@ -150,15 +139,13 @@ public class GameWindow implements ActionListener {
         	}
         	else if(j < 8)
         	{
-        		Rectangle tileBounds  = new Rectangle(tileStart + 4*Tile.TILE_W, 420 + BEVEL+(j-4)*(Tile.TILE_W+BEVEL), 
-													 Tile.TILE_W, 
-													 Tile.TILE_W);
+        		Rectangle tileBounds  = new Rectangle(tileStart - 5*Tile.TILE_W, 420 + BEVEL+(j-4)*(Tile.TILE_W+BEVEL), Tile.TILE_W,  Tile.TILE_W);
 
             	tileList.get(j).setBounds(tileBounds);
         	}
         	else if(j < 12)
         	{
-        		Rectangle tileBounds  = new Rectangle(tileStart- 5*Tile.TILE_W, 420 + BEVEL+(j-12)*(Tile.TILE_W+BEVEL), 
+        		Rectangle tileBounds  = new Rectangle(tileStart+ 4*Tile.TILE_W, 420 + BEVEL+(j-12)*(Tile.TILE_W+BEVEL), 
 						 Tile.TILE_W, 
 						 Tile.TILE_W);
 
@@ -166,7 +153,7 @@ public class GameWindow implements ActionListener {
         	}
         	else
         	{
-        		Rectangle tileBounds  = new Rectangle(tileStart- 5*Tile.TILE_W, 420 + BEVEL+(j-12)*(Tile.TILE_W+BEVEL), 
+        		Rectangle tileBounds  = new Rectangle(tileStart+ 4*Tile.TILE_W, 420 + BEVEL+(j-12)*(Tile.TILE_W+BEVEL), 
 						 Tile.TILE_W, 
 						 Tile.TILE_W);
 
@@ -177,6 +164,7 @@ public class GameWindow implements ActionListener {
     		panel.add(tileList.get(j));
         	
         }
+        
         panel.setPreferredSize(PANEL_SIZE);   
         panel.setBackground(Color.cyan);
         panel.repaint();        
